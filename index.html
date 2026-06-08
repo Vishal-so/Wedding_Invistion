@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <audio id="music" loop>
+    <source src="C:\Users\sonaw\Music\O Mahi O Mahi(PagalWorld.com.cm).mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn" onclick="toggleMusic()">♫</button>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <p class="small">We are getting married</p>
+      <h1>Yash & Pallavi</h1>
+      <p class="date">16 December 2026</p>
+      <button onclick="scrollToSection('couple')">Open Invitation</button>
+    </div>
+  </section>
+
+  <section id="couple" class="section">
+    <h2>Bride and Groom</h2>
+    <p class="subtitle">With the blessings of our families</p>
+
+    <div class="couple-box">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" />
+        <h3>Yash</h3>
+        <p>Son of Mr. & Mrs. Sonawane</p>
+      </div>
+
+      <div class="heart">♥</div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" />
+        <h3>Pallavi</h3>
+        <p>Daughter of Mr. & Mrs. Patil</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pink">
+    <h2>Save The Date</h2>
+    <div class="countdown">
+      <div><span id="days">00</span><p>Days</p></div>
+      <div><span id="hours">00</span><p>Hours</p></div>
+      <div><span id="minutes">00</span><p>Minutes</p></div>
+      <div><span id="seconds">00</span><p>Seconds</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Our Love Story</h2>
+    <div class="story">
+      <div>
+        <h3>First Meet</h3>
+        <p>Our beautiful journey started with a simple smile and became a lifetime promise.</p>
+      </div>
+      <div>
+        <h3>Engagement</h3>
+        <p>Two hearts came together with family blessings and lots of happiness.</p>
+      </div>
+      <div>
+        <h3>Wedding</h3>
+        <p>Now we are ready to begin our new life together forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery-section">
+    <h2>Wedding Gallery</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80">
+      <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=700&q=80">
+      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80">
+      <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=700&q=80">
+    </div>
+  </section>
+
+  <section class="section pink">
+    <h2>Wedding Events</h2>
+    <div class="events">
+      <div class="event-card">
+        <h3>Haldi Ceremony</h3>
+        <p>15 December 2026</p>
+        <p>06:00 AM</p>
+      </div>
+      <div class="event-card">
+        <h3>Wedding Ceremony</h3>
+        <p>16 December 2026</p>
+        <p>12:00 PM</p>
+      </div>
+      <div class="event-card">
+        <h3>Reception</h3>
+        <p>17 December 2026</p>
+        <p>08:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section location">
+    <h2>Venue</h2>
+    <p>Jain galli varche gaon shirpur, dist. Dhule, Maharashtra</p>
+    <a href="https://maps.app.goo.gl/KVYB569CgdFD7P3S9" target="_blank">View Location</a>
+  </section>
+
+  <footer>
+    <h2>Thank You</h2>
+    <p>Your presence will make our wedding more special.</p>
+    <p>Yash ♥ Pallavi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
