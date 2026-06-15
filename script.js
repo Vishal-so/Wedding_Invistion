@@ -1,58 +1,67 @@
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({
-    behavior:"smooth"
-  });
-
-  music.play();
-}
-
-let music = document.getElementById("music");
+const music = document.getElementById("music");
+const musicIcon = document.getElementById("musicIcon");
 let playing = false;
 
+function scrollToSection(id){
+  const target = document.getElementById(id);
+  if(target){
+    target.scrollIntoView({ behavior:"smooth" });
+  }
+  playMusic();
+}
+
+function playMusic(){
+  if(!music) return;
+  music.play().then(() => {
+    playing = true;
+    musicIcon.textContent = "❚❚";
+  }).catch(() => {
+    playing = false;
+    musicIcon.textContent = "♫";
+  });
+}
+
 function toggleMusic(){
+  if(!music) return;
   if(playing){
     music.pause();
     playing = false;
-  } else {
-    music.play();
-    playing = true;
+    musicIcon.textContent = "♫";
+  }else{
+    playMusic();
   }
 }
 
-// Auto play on first user interaction
-window.addEventListener("load", () => {
-  music.play().then(() => {
-    playing = true;
-  }).catch(() => {
-    console.log("Autoplay blocked by browser");
-  });
-});
+document.addEventListener("click", () => playMusic(), { once:true });
 
-document.body.addEventListener("click", () => {
-  music.play();
-  playing = true;
-}, { once: true });
+const weddingDate = new Date("2026-12-16T12:00:00+05:30").getTime();
 
-const weddingDate = new Date("December 16, 2026 12:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const gap = weddingDate - now;
+function updateCountdown(){
+  const now = Date.now();
+  const gap = Math.max(0, weddingDate - now);
 
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
-  document.getElementById("days").innerText =
-    Math.floor(gap / day);
+  document.getElementById("days").innerText = Math.floor(gap / day).toString().padStart(2,"0");
+  document.getElementById("hours").innerText = Math.floor((gap % day) / hour).toString().padStart(2,"0");
+  document.getElementById("minutes").innerText = Math.floor((gap % hour) / minute).toString().padStart(2,"0");
+  document.getElementById("seconds").innerText = Math.floor((gap % minute) / second).toString().padStart(2,"0");
+}
 
-  document.getElementById("hours").innerText =
-    Math.floor((gap % day) / hour);
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
-  document.getElementById("minutes").innerText =
-    Math.floor((gap % hour) / minute);
+const revealItems = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+},{ threshold:.15 });
 
-  document.getElementById("seconds").innerText =
-    Math.floor((gap % minute) / second);
-}, 1000);
+revealItems.forEach(item => observer.observe(item));
