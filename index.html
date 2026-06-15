@@ -3,118 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Invitation</title>
+  <title>Yash & Pallavin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <audio id="music" loop>
-    <source src="C:\Users\sonaw\Music\O Mahi O Mahi(PagalWorld.com.cm).mp3" type="audio/mpeg">
+  <audio id="music" loop preload="auto">
+    <!-- Put your song in this same folder and rename it to music.mp3 -->
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <button class="music-btn" onclick="toggleMusic()">♫</button>
+  <button class="music-btn" onclick="toggleMusic()" aria-label="Play or pause music">
+    <span id="musicIcon">♫</span>
+  </button>
 
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <p class="small">We are getting married</p>
-      <h1>Yash & Pallavi</h1>
-      <p class="date">16 December 2026</p>
-      <button onclick="scrollToSection('couple')">Open Invitation</button>
+  <div class="royal-bg">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <div class="petals" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="hero" id="home">
+    <nav class="nav glass">
+      <div class="logo">Y ♥ P</div>
+      <div class="nav-links">
+        <a href="#couple">Couple</a>
+        <a href="#story">Story</a>
+        <a href="#events">Events</a>
+        <a href="#venue">Venue</a>
+      </div>
+    </nav>
+
+    <div class="mandala mandala-left"></div>
+    <div class="mandala mandala-right"></div>
+
+    <div class="hero-card glass reveal">
+      <p class="eyebrow">Together with our families</p>
+      <h1>Yash <span>&</span> Pallavi</h1>
+      <p class="hero-line">Invite you to celebrate their wedding ceremony</p>
+      <div class="date-pill">16 December 2026 • 12:00 PM</div>
+      <button class="primary-btn" onclick="scrollToSection('couple')">Open Invitation</button>
     </div>
-  </section>
 
-  <section id="couple" class="section">
-    <h2>Bride and Groom</h2>
-    <p class="subtitle">With the blessings of our families</p>
+    <div class="scroll-down">Scroll</div>
+  </header>
 
-    <div class="couple-box">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" />
-        <h3>Yash</h3>
-        <p>Son of Mr. & Mrs. Sonawane</p>
+  <main>
+    <section id="couple" class="section couple-section">
+      <p class="section-label">Bride & Groom</p>
+      <h2>Two Hearts, One Beautiful Journey</h2>
+      <p class="subtitle">With the blessings of our families, we begin our forever.</p>
+
+      <div class="couple-box">
+        <article class="profile-card reveal">
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=90" alt="Groom photo">
+          </div>
+          <h3>Yash</h3>
+          <p>Son of Mr. & Mrs. Sonawane</p>
+        </article>
+
+        <div class="heart-3d reveal">♥</div>
+
+        <article class="profile-card reveal">
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=90" alt="Bride photo">
+          </div>
+          <h3>Pallavi</h3>
+          <p>Daughter of Mr. & Mrs. Patil</p>
+        </article>
       </div>
+    </section>
 
-      <div class="heart">♥</div>
+    <section class="section countdown-section">
+      <p class="section-label">Save The Date</p>
+      <h2>Countdown to Forever</h2>
+      <div class="countdown reveal">
+        <div><span id="days">00</span><p>Days</p></div>
+        <div><span id="hours">00</span><p>Hours</p></div>
+        <div><span id="minutes">00</span><p>Minutes</p></div>
+        <div><span id="seconds">00</span><p>Seconds</p></div>
+      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" />
-        <h3>Pallavi</h3>
-        <p>Daughter of Mr. & Mrs. Patil</p>
+    <section id="story" class="section story-section">
+      <p class="section-label">Our Love Story</p>
+      <h2>A Promise Written in Stars</h2>
+      <div class="story timeline">
+        <article class="story-card reveal">
+          <span>01</span>
+          <h3>First Meet</h3>
+          <p>Our beautiful journey started with a simple smile and became a lifetime promise.</p>
+        </article>
+        <article class="story-card reveal">
+          <span>02</span>
+          <h3>Engagement</h3>
+          <p>Two hearts came together with family blessings and endless happiness.</p>
+        </article>
+        <article class="story-card reveal">
+          <span>03</span>
+          <h3>Wedding</h3>
+          <p>Now we are ready to begin our new life together forever.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section pink">
-    <h2>Save The Date</h2>
-    <div class="countdown">
-      <div><span id="days">00</span><p>Days</p></div>
-      <div><span id="hours">00</span><p>Hours</p></div>
-      <div><span id="minutes">00</span><p>Minutes</p></div>
-      <div><span id="seconds">00</span><p>Seconds</p></div>
-    </div>
-  </section>
+    <section class="section gallery-section">
+      <p class="section-label">Memories</p>
+      <h2>Wedding Gallery</h2>
+      <div class="gallery reveal">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
+        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
+      </div>
+    </section>
 
-  <section class="section">
-    <h2>Our Love Story</h2>
-    <div class="story">
-      <div>
-        <h3>First Meet</h3>
-        <p>Our beautiful journey started with a simple smile and became a lifetime promise.</p>
+    <section id="events" class="section events-section">
+      <p class="section-label">Wedding Events</p>
+      <h2>Celebration Schedule</h2>
+      <div class="events">
+        <article class="event-card reveal">
+          <div class="event-icon">🌼</div>
+          <h3>Haldi Ceremony</h3>
+          <p>15 December 2026</p>
+          <strong>06:00 AM</strong>
+        </article>
+        <article class="event-card reveal">
+          <div class="event-icon">💍</div>
+          <h3>Wedding Ceremony</h3>
+          <p>16 December 2026</p>
+          <strong>12:00 PM</strong>
+        </article>
+        <article class="event-card reveal">
+          <div class="event-icon">✨</div>
+          <h3>Reception</h3>
+          <p>17 December 2026</p>
+          <strong>08:00 PM</strong>
+        </article>
       </div>
-      <div>
-        <h3>Engagement</h3>
-        <p>Two hearts came together with family blessings and lots of happiness.</p>
-      </div>
-      <div>
-        <h3>Wedding</h3>
-        <p>Now we are ready to begin our new life together forever.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section gallery-section">
-    <h2>Wedding Gallery</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80">
-      <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=700&q=80">
-      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80">
-      <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=700&q=80">
-    </div>
-  </section>
-
-  <section class="section pink">
-    <h2>Wedding Events</h2>
-    <div class="events">
-      <div class="event-card">
-        <h3>Haldi Ceremony</h3>
-        <p>15 December 2026</p>
-        <p>06:00 AM</p>
+    <section id="venue" class="section venue-section">
+      <div class="venue-card glass reveal">
+        <p class="section-label">Venue</p>
+        <h2>Join Us With Your Blessings</h2>
+        <p>Jain Galli, Varche Gaon, Shirpur, Dist. Dhule, Maharashtra</p>
+        <a class="primary-btn" href="https://maps.app.goo.gl/KVYB569CgdFD7P3S9" target="_blank" rel="noopener">View Location</a>
       </div>
-      <div class="event-card">
-        <h3>Wedding Ceremony</h3>
-        <p>16 December 2026</p>
-        <p>12:00 PM</p>
-      </div>
-      <div class="event-card">
-        <h3>Reception</h3>
-        <p>17 December 2026</p>
-        <p>08:00 PM</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section location">
-    <h2>Venue</h2>
-    <p>Jain galli varche gaon shirpur, dist. Dhule, Maharashtra</p>
-    <a href="https://maps.app.goo.gl/KVYB569CgdFD7P3S9" target="_blank">View Location</a>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <h2>Thank You</h2>
     <p>Your presence will make our wedding more special.</p>
-    <p>Yash ♥ Pallavi</p>
+    <p class="footer-names">Yash ♥ Pallavi</p>
   </footer>
 
   <script src="script.js"></script>
