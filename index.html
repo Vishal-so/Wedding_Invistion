@@ -1,28 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yash & Pallavin</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yash &amp; Pallavi | Royal Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Marcellus&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio id="music" loop preload="auto">
-    <!-- Put your song in this same folder and rename it to music.mp3 -->
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
 
-  <button class="music-btn" onclick="toggleMusic()" aria-label="Play or pause music">
-    <span id="musicIcon">♫</span>
-  </button>
+<audio id="music" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="royal-bg">
+<!-- ambient canvases -->
+<canvas id="particleCanvas"></canvas>
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- ============ OPENING SCREEN ============ -->
+<section id="openingScreen" class="opening-screen">
+  <div class="opening-mandala" aria-hidden="true">
+    <svg viewBox="0 0 400 400" class="mandala-svg spin-slow">
+      <g fill="none" stroke="url(#gGold)" stroke-width="1">
+        <circle cx="200" cy="200" r="180"/>
+        <circle cx="200" cy="200" r="150"/>
+        <circle cx="200" cy="200" r="120"/>
+        <circle cx="200" cy="200" r="90"/>
+      </g>
+      <g id="mandalaPetalsGroup" fill="none" stroke="url(#gGold)" stroke-width="1.2"></g>
+      <defs>
+        <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#F9E7A0"/>
+          <stop offset="50%" stop-color="#D4AF37"/>
+          <stop offset="100%" stop-color="#8a6a1a"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="opening-rays" aria-hidden="true"></div>
+  <div class="opening-smoke" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="opening-content">
+    <p class="om-symbol">ॐ</p>
+    <h1 class="opening-title">|| श्री गणेशाय नमः ||</h1>
+    <p class="opening-sub">With the blessings of Lord Ganesha</p>
+  </div>
+
+  <div class="opening-bells" aria-hidden="true">
+    <span class="bell">🔔</span>
+    <span class="bell">🔔</span>
+  </div>
+</section>
+
+<!-- ============ INVITATION GATE (3D SCROLL) ============ -->
+<section id="invitationGate" class="invitation-gate">
+  <div class="gate-mandala spin-reverse" aria-hidden="true"></div>
+  <div class="scroll-stage">
+    <div class="scroll-3d" id="scroll3d">
+      <div class="scroll-rod scroll-rod-top"></div>
+      <div class="scroll-paper">
+        <p class="scroll-eyebrow">The families of</p>
+        <h2 class="scroll-names">Yash <span>&amp;</span> Pallavi</h2>
+        <p class="scroll-line">joyfully invite you to their wedding celebration</p>
+        <p class="scroll-date">16 · December · 2026</p>
+        <button class="royal-btn open-invite-btn" id="openInviteBtn">
+          <span>Open Invitation</span>
+        </button>
+      </div>
+      <div class="scroll-rod scroll-rod-bottom"></div>
+    </div>
+  </div>
+  <p class="gate-hint">✨ Tap to unveil your royal invitation ✨</p>
+</section>
+
+<!-- ============ MAIN SITE ============ -->
+<div id="mainSite" class="main-site">
+
+  <!-- top toran -->
+  <div class="toran" aria-hidden="true" id="toran"></div>
+
+  <!-- side diyas & peacock feathers -->
+  <div class="side-decor side-left" aria-hidden="true">
+    <div class="diya"><div class="flame"></div><div class="smoke"></div></div>
+    <div class="peacock-feather"></div>
+  </div>
+  <div class="side-decor side-right" aria-hidden="true">
+    <div class="diya"><div class="flame"></div><div class="smoke"></div></div>
+    <div class="peacock-feather flip"></div>
+  </div>
+
+  <div class="royal-bg" aria-hidden="true">
     <span class="orb orb-1"></span>
     <span class="orb orb-2"></span>
     <span class="orb orb-3"></span>
+    <div class="bg-mandala bg-mandala-1 spin-slow"></div>
+    <div class="bg-mandala bg-mandala-2 spin-reverse"></div>
   </div>
 
   <div class="petals" aria-hidden="true">
@@ -30,26 +107,31 @@
     <span></span><span></span><span></span><span></span><span></span><span></span>
   </div>
 
+  <button class="music-btn" onclick="toggleMusic()" aria-label="Play or pause music">
+    <span id="musicIcon">♫</span>
+  </button>
+
   <header class="hero" id="home">
     <nav class="nav glass">
-      <div class="logo">Y ♥ P</div>
+      <div class="logo">Y ॐ P</div>
       <div class="nav-links">
         <a href="#couple">Couple</a>
         <a href="#story">Story</a>
         <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
         <a href="#venue">Venue</a>
       </div>
     </nav>
 
-    <div class="mandala mandala-left"></div>
-    <div class="mandala mandala-right"></div>
+    <div class="elephant elephant-left" aria-hidden="true">🐘</div>
+    <div class="elephant elephant-right" aria-hidden="true">🐘</div>
 
-    <div class="hero-card glass reveal">
+    <div class="hero-card glass reveal" id="heroCard">
       <p class="eyebrow">Together with our families</p>
-      <h1>Yash <span>&</span> Pallavi</h1>
-      <p class="hero-line">Invite you to celebrate their wedding ceremony</p>
+      <h1>Yash <span>&amp;</span> Pallavi</h1>
+      <p class="hero-line">request the honour of your presence at their wedding</p>
       <div class="date-pill">16 December 2026 • 12:00 PM</div>
-      <button class="primary-btn" onclick="scrollToSection('couple')">Open Invitation</button>
+      <button class="royal-btn" onclick="scrollToSection('couple')"><span>Enter the Celebration</span></button>
     </div>
 
     <div class="scroll-down">Scroll</div>
@@ -57,8 +139,8 @@
 
   <main>
     <section id="couple" class="section couple-section">
-      <p class="section-label">Bride & Groom</p>
-      <h2>Two Hearts, One Beautiful Journey</h2>
+      <p class="section-label">Bride &amp; Groom</p>
+      <h2>Two Hearts, One Royal Journey</h2>
       <p class="subtitle">With the blessings of our families, we begin our forever.</p>
 
       <div class="couple-box">
@@ -67,7 +149,7 @@
             <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=90" alt="Groom photo">
           </div>
           <h3>Yash</h3>
-          <p>Son of Mr. & Mrs. Sonawane</p>
+          <p>Son of Mr. &amp; Mrs. Sonawane</p>
         </article>
 
         <div class="heart-3d reveal">♥</div>
@@ -77,7 +159,7 @@
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=90" alt="Bride photo">
           </div>
           <h3>Pallavi</h3>
-          <p>Daughter of Mr. & Mrs. Patil</p>
+          <p>Daughter of Mr. &amp; Mrs. Patil</p>
         </article>
       </div>
     </section>
@@ -86,10 +168,10 @@
       <p class="section-label">Save The Date</p>
       <h2>Countdown to Forever</h2>
       <div class="countdown reveal">
-        <div><span id="days">00</span><p>Days</p></div>
-        <div><span id="hours">00</span><p>Hours</p></div>
-        <div><span id="minutes">00</span><p>Minutes</p></div>
-        <div><span id="seconds">00</span><p>Seconds</p></div>
+        <div class="flip-card"><span id="days">00</span><p>Days</p></div>
+        <div class="flip-card"><span id="hours">00</span><p>Hours</p></div>
+        <div class="flip-card"><span id="minutes">00</span><p>Minutes</p></div>
+        <div class="flip-card"><span id="seconds">00</span><p>Seconds</p></div>
       </div>
     </section>
 
@@ -98,32 +180,42 @@
       <h2>A Promise Written in Stars</h2>
       <div class="story timeline">
         <article class="story-card reveal">
-          <span>01</span>
+          <span>🌸</span>
           <h3>First Meet</h3>
           <p>Our beautiful journey started with a simple smile and became a lifetime promise.</p>
         </article>
         <article class="story-card reveal">
-          <span>02</span>
+          <span>💍</span>
           <h3>Engagement</h3>
           <p>Two hearts came together with family blessings and endless happiness.</p>
         </article>
         <article class="story-card reveal">
-          <span>03</span>
+          <span>👑</span>
           <h3>Wedding</h3>
-          <p>Now we are ready to begin our new life together forever.</p>
+          <p>Now we are ready to begin our new life together, forever, as one.</p>
         </article>
       </div>
     </section>
 
-    <section class="section gallery-section">
+    <section id="gallery" class="section gallery-section">
       <p class="section-label">Memories</p>
       <h2>Wedding Gallery</h2>
-      <div class="gallery reveal">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
-        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
-        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image">
+      <p class="subtitle">A circle of moments — watch our story turn.</p>
+      <div class="gallery-orbit-wrap reveal">
+        <div class="gallery-orbit" id="galleryOrbit">
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1594736797933-d0d62050f906?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+          <div class="orbit-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=90" alt="Wedding gallery image"></div>
+        </div>
       </div>
+      <p class="orbit-hint">Hover to pause · Click a photo to zoom</p>
     </section>
 
     <section id="events" class="section events-section">
@@ -135,6 +227,12 @@
           <h3>Haldi Ceremony</h3>
           <p>15 December 2026</p>
           <strong>06:00 AM</strong>
+        </article>
+        <article class="event-card reveal">
+          <div class="event-icon">💃</div>
+          <h3>Mehendi &amp; Sangeet</h3>
+          <p>15 December 2026</p>
+          <strong>06:00 PM</strong>
         </article>
         <article class="event-card reveal">
           <div class="event-icon">💍</div>
@@ -156,17 +254,35 @@
         <p class="section-label">Venue</p>
         <h2>Join Us With Your Blessings</h2>
         <p>Jain Galli, Varche Gaon, Shirpur, Dist. Dhule, Maharashtra</p>
-        <a class="primary-btn" href="https://maps.app.goo.gl/KVYB569CgdFD7P3S9" target="_blank" rel="noopener">View Location</a>
+        <div class="map-wrap">
+          <div class="map-pin">📍</div>
+          <iframe
+            title="Venue map"
+            src="https://maps.google.com/maps?q=Jain%20Galli%2C%20Varche%20Gaon%2C%20Shirpur%2C%20Dhule%2C%20Maharashtra&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="royal-btn" href="https://maps.app.goo.gl/KVYB569CgdFD7P3S9" target="_blank" rel="noopener"><span>Get Directions</span></a>
       </div>
     </section>
   </main>
 
   <footer>
+    <div class="footer-diya" aria-hidden="true">🪔</div>
     <h2>Thank You</h2>
     <p>Your presence will make our wedding more special.</p>
     <p class="footer-names">Yash ♥ Pallavi</p>
+    <div class="footer-lotus" aria-hidden="true">🌸 🪷 🌸</div>
   </footer>
+</div>
 
-  <script src="script.js"></script>
+<!-- lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="Gallery preview">
+</div>
+
+<script src="particles.js"></script>
+<script src="fireworks.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
